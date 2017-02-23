@@ -1,6 +1,7 @@
 defmodule ClicheRumbl.UserController do
   use ClicheRumbl.Web, :controller
   alias ClicheRumbl.User
+  plug :authenticate when action in [:index, :show]
 
   def index(conn, _params) do
     users = Repo.all(User)
@@ -18,6 +19,7 @@ defmodule ClicheRumbl.UserController do
     case Repo.insert(changeset) do
       {:ok, user} ->
         conn
+        |> ClicheRumbl.Auth.login(user)
         |> put_flash(:info, "#{user.name} created!")
         |> redirect(to: user_path(conn, :index))
       {:error, changeset} ->
@@ -28,5 +30,16 @@ defmodule ClicheRumbl.UserController do
   def show(conn, %{"id" => id}) do
     user = Repo.get(User, id)
     render conn, "show.html", user: user
+  end
+
+  defp authenticate(conn, _opts) do
+    if conn.assigns.current_user do
+      conn
+    else
+      conn
+      |> put_flash(:error, "You must be logged in to access that page")
+      |> redirect(to: page_path(conn, :index))
+      |> halt()
+    end
   end
 end
