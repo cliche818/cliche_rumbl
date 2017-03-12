@@ -36,6 +36,7 @@ defmodule ClicheRumbl.Web do
 
       import ClicheRumbl.Router.Helpers
       import ClicheRumbl.Gettext
+      import ClicheRumbl.Auth, only: [authenticate_user: 2] # New import
     end
   end
 
@@ -58,6 +59,8 @@ defmodule ClicheRumbl.Web do
   def router do
     quote do
       use Phoenix.Router
+
+      import ClicheRumbl.Auth, only: [authenticate_user: 2] # New import
     end
   end
 
