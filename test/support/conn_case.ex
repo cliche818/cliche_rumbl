@@ -26,6 +26,7 @@ defmodule ClicheRumbl.ConnCase do
       import Ecto.Query
 
       import ClicheRumbl.Router.Helpers
+      import ClicheRumbl.TestHelpers
 
       # The default endpoint for testing
       @endpoint ClicheRumbl.Endpoint
