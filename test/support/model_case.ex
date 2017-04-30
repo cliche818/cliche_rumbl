@@ -21,6 +21,7 @@ defmodule ClicheRumbl.ModelCase do
       import Ecto
       import Ecto.Changeset
       import Ecto.Query
+      import ClicheRumbl.TestHelpers
       import ClicheRumbl.ModelCase
     end
   end
