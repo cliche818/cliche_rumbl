@@ -7,7 +7,6 @@ defmodule ClicheRumbl.VideoController do
   plug :load_categories when action in [:new, :create, :edit, :update]
 
   def action(conn, _) do
-  IO.puts "Anyone?"
     apply(__MODULE__, action_name(conn), [conn, conn.params, conn.assigns.current_user])
   end
 

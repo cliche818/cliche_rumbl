@@ -2,9 +2,9 @@ defmodule ClicheRumbl.VideoControllerTest do
   use ClicheRumbl.ConnCase
 
   setup %{conn: conn} = config do
-    if username = config[:login_as] do
+    if config[:login_as] do
       user = insert_user(username: "max")
-      conn = assign(conn(), :current_user, user)
+      conn = assign(build_conn(), :current_user, user)
       {:ok, conn: conn, user: user}
     else
       :ok
