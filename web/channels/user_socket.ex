@@ -2,7 +2,7 @@ defmodule ClicheRumbl.UserSocket do
   use Phoenix.Socket
 
   ## Channels
-  # channel "room:*", ClicheRumbl.RoomChannel
+  channel "videos:*", ClicheRumbl.VideoChannel
 
   ## Transports
   transport :websocket, Phoenix.Transports.WebSocket
