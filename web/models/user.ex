@@ -7,6 +7,7 @@ defmodule ClicheRumbl.User do
     field :password, :string, virtual: true
     field :password_hash, :string
     has_many :videos, ClicheRumbl.Video
+    has_many :annotations, ClicheRumbl.Annotation
 
     timestamps
   end

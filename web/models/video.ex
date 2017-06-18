@@ -8,6 +8,8 @@ defmodule ClicheRumbl.Video do
     field :title, :string
     field :description, :string
     field :slug, :string
+    has_many :annotations, ClicheRumbl.Annotation
+
     belongs_to :user, ClicheRumbl.User
     belongs_to :category, ClicheRumbl.Category
 
