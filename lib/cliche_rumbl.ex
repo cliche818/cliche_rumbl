@@ -10,8 +10,10 @@ defmodule ClicheRumbl do
     children = [
       # Start the Ecto repository
       supervisor(ClicheRumbl.Repo, []),
+
+      supervisor(ClicheRumbl.InfoSys.Supervisor, []),
       # Start the endpoint when the application starts
-      supervisor(ClicheRumbl.Endpoint, []),
+      supervisor(ClicheRumbl.Endpoint, [])
       # Start your own worker by calling: ClicheRumbl.Worker.start_link(arg1, arg2, arg3)
       # worker(ClicheRumbl.Worker, [arg1, arg2, arg3]),
     ]

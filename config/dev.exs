@@ -41,3 +41,5 @@ config :cliche_rumbl, ClicheRumbl.Repo,
   database: "cliche_rumbl_dev",
   hostname: "localhost",
   pool_size: 10
+
+import_config "dev.secret.exs"
